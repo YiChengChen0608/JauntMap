@@ -1,9 +1,13 @@
 import React from 'react'
-import './App.css'
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'styles/global'
 
 function App () {
   return (
-    <div>test</div>
+    <ThemeProvider theme={theme}>
+      <div></div>
+    </ThemeProvider>
+
   )
 }
 
