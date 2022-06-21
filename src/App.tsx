@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/global'
-import Layout from './layout/default'
+import Layout from './layout/Layout'
 
 function App (): React.ReactElement {
   return (
