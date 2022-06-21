@@ -46,7 +46,7 @@ interface Effect {
   btn_shadow3_dark: string
 }
 
-interface Theme {
+export interface Theme {
   texts: Text,
   colors: Color,
   effects: Effect
