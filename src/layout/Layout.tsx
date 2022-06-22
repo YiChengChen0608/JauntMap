@@ -1,25 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Theme } from '../styles/global'
+import StyledHeader from '../components/Header'
 
-interface ContainerProps {
+interface LayoutProps {
   className: string,
   children: React.ReactNode,
   theme?: Theme
 }
 
-function Container ({ className, children }: ContainerProps): React.ReactElement {
+function Layout ({ className, children }: LayoutProps): React.ReactElement {
   return (
     <div className={className}>
-      <header></header>
-      <main className="container-main">{children}</main>
+      <StyledHeader><div>123</div></StyledHeader>
+      <main className="Layout-main">{children}</main>
     </div>
   )
 }
 
-const Layout = styled(Container)<ContainerProps>`
+const StyledLayout = styled(Layout)<LayoutProps>`
   background: ${({ theme }) => theme.colors.background};
-  .container {
+  .Layout {
     &-main {
       max-width: 1280px;
       margin: 0 auto;
@@ -27,4 +28,4 @@ const Layout = styled(Container)<ContainerProps>`
   }
 `
 
-export default React.memo(Layout)
+export default React.memo(StyledLayout)
