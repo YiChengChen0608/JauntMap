@@ -1,15 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Theme } from '../styles/global'
 import StyledHeader from '../components/Header'
+import { Props } from 'utils/types'
 
-interface LayoutProps {
-  className: string,
-  children: React.ReactNode,
-  theme?: Theme
-}
-
-function Layout ({ className, children }: LayoutProps): React.ReactElement {
+function Layout ({ className, children }: Props): React.ReactElement {
   return (
     <div className={className}>
       <StyledHeader><div>123</div></StyledHeader>
@@ -18,7 +12,7 @@ function Layout ({ className, children }: LayoutProps): React.ReactElement {
   )
 }
 
-const StyledLayout = styled(Layout)<LayoutProps>`
+const StyledLayout = styled(Layout)<Props>`
   background: ${({ theme }) => theme.colors.background};
   .Layout {
     &-main {
