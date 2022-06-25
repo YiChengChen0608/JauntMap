@@ -1,14 +1,16 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/global'
-import Layout from './layout/Layout'
+import StyledLayout from './layout/Layout'
+import { TabProvider } from './hooks/useTabState'
 
 function App (): React.ReactElement {
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <div>123</div>
-      </Layout>
+      <TabProvider>
+        <StyledLayout>
+        </StyledLayout>
+      </TabProvider>
     </ThemeProvider>
 
   )
