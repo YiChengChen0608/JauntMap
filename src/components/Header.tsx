@@ -30,6 +30,7 @@ function Header ({ className, children }: Props): React.ReactElement {
           </div>
         </div>
       </div>
+      <div className="header-spacer"></div>
     </header>
   )
 }
@@ -90,6 +91,14 @@ const StyledHeader = styled(Header)<Props>`
         padding: 14px 8px;
         opacity: 1;
       }
+    }
+    &-spacer {
+      width: 100%;
+      height: 12px;
+      position: absolute;
+      bottom: -12px;
+      background: ${({ theme }) => theme.colors.background};
+      box-shadow: 0px -2px 0px #FFFFFF, 0px 2px 12px #D4DBEA;;
     }
   }
 `
