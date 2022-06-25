@@ -1,5 +1,8 @@
 import React from 'react'
 
+enum ActionTypeEnum {
+  SET_TAB = 'SET_TAB'
+}
 interface TabState {
   currentTab: string
 }
@@ -20,7 +23,7 @@ const initialState: TabState = {
 
 const reducer = (state: TabState, action: TabAction): TabState => {
   switch (action.type) {
-    case 'SET_TAB':
+    case ActionTypeEnum.SET_TAB:
       return { ...state, currentTab: action.payload }
     default:
       return state
