@@ -90,6 +90,7 @@ const StyledHeader = styled(Header)<Props>`
         max-height: 109px;
         padding: 14px 8px;
         opacity: 1;
+        z-index: 2;
       }
     }
     &-spacer {
