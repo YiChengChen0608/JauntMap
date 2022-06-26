@@ -22,7 +22,7 @@ const StyledLayout = styled(Layout)<Props>`
     height: 40px;
     border-radius: 50px;
     background: ${({ theme }) => theme.colors.background};
-    border-color: transparent;
+    border: 
     box-shadow: ${({ theme }) => theme.effects.btn_shadow};
     cursor: pointer;
     &-icon {
