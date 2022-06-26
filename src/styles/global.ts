@@ -46,13 +46,24 @@ interface Effect {
   btn_shadow3_dark: string
 }
 
+interface Device {
+  mobile: string,
+  tablet: string,
+  desktop: string
+}
 export interface Theme {
   texts: Text,
   colors: Color,
-  effects: Effect
+  effects: Effect,
+  device: Device
 }
 
 export const theme: Theme = {
+  device: {
+    mobile: '375px',
+    tablet: '768px',
+    desktop: '1280px'
+  },
   texts: {
     font_style: 'normal',
     font_weigth: 400,
