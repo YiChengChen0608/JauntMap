@@ -3,8 +3,21 @@ import styled from 'styled-components'
 import StyledHeader from '../components/Header'
 import StyledFooter from '../components/Footer'
 import { Props } from 'utils/types'
+import { getTourismList, getTdxAccessToken } from '../services/tourism'
 
 function Layout ({ className, children }: Props): React.ReactElement {
+  React.useEffect(() => {
+    const abortController = new AbortController()
+    async function getTourism () {
+      await getTdxAccessToken({ signal: abortController.signal })
+      // getTourismList({ signal: abortController.signal, params: { $format: 'JSON' }, headers: { authorization: `${token_type + ' ' + access_token}` } })
+    }
+    getTourism()
+    return () => {
+      abortController.abort()
+    }
+  }, [])
+
   return (
     <div className={className}>
       <StyledHeader><div>123</div></StyledHeader>
