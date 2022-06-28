@@ -3,8 +3,8 @@ import { request, AxiosRequestConfig, AxiosResponse } from '../../utils/api'
 // 取得觀光資料 https://tdx.transportdata.tw/api-service/swagger#/Tourism
 
 interface TokenResult {
-  token_type: string,
-  access_token: string
+  access_token: string,
+  expires_in: number
 }
 
 export const getTdxAccessToken = (config?: AxiosRequestConfig): Promise<AxiosResponse<TokenResult>> => {
@@ -24,7 +24,7 @@ export const getTdxAccessToken = (config?: AxiosRequestConfig): Promise<AxiosRes
 }
 
 export const getTourismList = (config?: AxiosRequestConfig) => request({
-  url: 'https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token',
+  url: 'https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot',
   params: config?.params,
   signal: config?.signal,
   headers: config?.headers

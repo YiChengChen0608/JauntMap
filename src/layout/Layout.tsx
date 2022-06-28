@@ -4,13 +4,19 @@ import StyledHeader from '../components/Header'
 import StyledFooter from '../components/Footer'
 import { Props } from 'utils/types'
 import { getTourismList, getTdxAccessToken } from '../services/tourism'
+import Cookies from 'js-cookie'
 
 function Layout ({ className, children }: Props): React.ReactElement {
   React.useEffect(() => {
     const abortController = new AbortController()
     async function getTourism () {
-      await getTdxAccessToken({ signal: abortController.signal })
-      // getTourismList({ signal: abortController.signal, params: { $format: 'JSON' }, headers: { authorization: `${token_type + ' ' + access_token}` } })
+      if (!Cookies.get('tdxAccessToken')) {
+        const { data: { access_token, expires_in } } = await getTdxAccessToken({ signal: abortController.signal })
+        // 86400 為一天的秒數
+        Cookies.set('tdxAccessToken', access_token, { expires: expires_in / 86400 })
+      }
+
+      await getTourismList({ signal: abortController.signal, params: { $top: 30, $format: 'JSON' }, headers: { Authorization: `${'Bearer ' + Cookies.get('tdxAccessToken')}` } })
     }
     getTourism()
     return () => {
