@@ -14,19 +14,21 @@ function Header ({ className, children }: Props): React.ReactElement {
   }, [])
   return (
     <header className={className}>
-      <div className="header-logo">
-        <Logo className="header-logo-image" />
-      </div>
-      <div className="header-middle">
-        {children}
-      </div>
-      <div className="header-tab">
-        <StyledTab className="header-menu" />
-        <div className="header-submenu">
-          <button className={`btn ${menuIsOpen ? 'btn-active' : ''}`} type='button' onClick={setMenuStatus}><Setting className="btn-icon" /></button>
-          <div className={`header-submenu-popup ${menuIsOpen ? 'popup-active' : ''}`}>
-            <button className="btn" type='button'><DarkMode className="btn-icon" /></button>
-            <button className="btn-logout" type='button'>登出</button>
+      <div className="header-container">
+        <div className="header-logo">
+          <Logo className="header-logo-image" />
+        </div>
+        <div className="header-middle">
+          {children}
+        </div>
+        <div className="header-tab">
+          <StyledTab className="header-menu" />
+          <div className="header-submenu">
+            <button className={`btn ${menuIsOpen ? 'btn-active' : ''}`} type='button' onClick={setMenuStatus}><Setting className="btn-icon" /></button>
+            <div className={`header-submenu-popup ${menuIsOpen ? 'popup-active' : ''}`}>
+              <button className="btn" type='button'><DarkMode className="btn-icon" /></button>
+              <button className="btn-logout" type='button'>登出</button>
+            </div>
           </div>
         </div>
       </div>
@@ -38,11 +40,13 @@ function Header ({ className, children }: Props): React.ReactElement {
 const StyledHeader = styled(Header)<Props>`
   background: rgba(234, 235, 237, 0.8);
   backdrop-filter: blur(8px);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  padding: 18px 40px;
   .header {
+    &-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      align-items: center;
+      padding: 18px 40px;
+    }
     &-middle {
       justify-self: center;
     }
@@ -96,8 +100,6 @@ const StyledHeader = styled(Header)<Props>`
     &-spacer {
       width: 100%;
       height: 12px;
-      position: absolute;
-      bottom: -12px;
       background: ${({ theme }) => theme.colors.background};
       box-shadow: 0px -2px 0px #FFFFFF, 0px 2px 12px #D4DBEA;;
     }

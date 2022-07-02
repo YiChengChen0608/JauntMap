@@ -63,7 +63,11 @@ const StyledLayout = styled(Layout)<Props>`
   .Layout {
     &-main {
       max-width: ${({ theme }) => theme.device.desktop};
-      margin: 0 auto;
+      height: 1200px;
+      margin: 38px auto;
+      @media (max-width: ${({ theme }) => theme.device.mobile}) {
+        margin: 30px auto;
+      }
     }
     
   }
