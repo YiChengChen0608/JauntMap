@@ -1,8 +1,8 @@
 import React from 'react'
-import { Theme } from 'src/styles/global'
+import { DefaultTheme } from 'styled-components'
 
 export interface Props {
   className: string,
   children?: React.ReactNode,
-  theme?: Theme
+  theme?: DefaultTheme
 }

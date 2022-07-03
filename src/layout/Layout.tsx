@@ -5,10 +5,8 @@ import StyledFooter from '../components/Footer'
 import { Props } from 'utils/types'
 import { getTourismList, getTdxAccessToken } from '../services/tourism'
 import Cookies from 'js-cookie'
-import { useLocation } from 'react-router-dom'
 
 function Layout ({ className, children }: Props): React.ReactElement {
-  console.log(useLocation())
   React.useEffect(() => {
     const abortController = new AbortController()
     async function getTourism () {
@@ -37,31 +35,6 @@ function Layout ({ className, children }: Props): React.ReactElement {
 
 const StyledLayout = styled(Layout)<Props>`
   background: ${({ theme }) => theme.colors.background};
-  .btn {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    background: ${({ theme }) => theme.colors.background};
-    border: none;
-    box-shadow: ${({ theme }) => theme.effects.btn_shadow};
-    cursor: pointer;
-    &-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    &-active {
-      background: ${({ theme }) => theme.colors.Gradual};
-      box-shadow: ${({ theme }) => theme.effects.btn_shadow2};
-      .btn-icon path {
-        stroke: ${({ theme }) => theme.colors.white};
-        stroke-width: 0.1px;
-        fill: ${({ theme }) => theme.colors.white};
-      }
-    }
-  }
   .Layout {
     &-main {
       margin: 0 auto;
@@ -69,7 +42,7 @@ const StyledLayout = styled(Layout)<Props>`
       @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
         max-width: ${({ theme }) => theme.breakpoint.md};
         padding-left: 44px;
-        padding:rigth: 44px;
+        padding-right: 44px;
       }
       @media (min-width: ${({ theme }) => theme.breakpoint.lg}) {
         max-width: ${({ theme }) => theme.breakpoint.lg};
@@ -78,7 +51,6 @@ const StyledLayout = styled(Layout)<Props>`
         max-width: ${({ theme }) => theme.breakpoint.xl};
       }
     }
-    
   }
 `
 
