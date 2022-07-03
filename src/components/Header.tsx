@@ -27,7 +27,7 @@ function Header ({ className, children }: Props): React.ReactElement {
             <button className={`btn ${menuIsOpen ? 'btn-active' : ''}`} type='button' onClick={setMenuStatus}><Setting className="btn-icon" /></button>
             <div className={`header-submenu-popup ${menuIsOpen ? 'popup-active' : ''}`}>
               <button className="btn" type='button'><DarkMode className="btn-icon" /></button>
-              <button className="btn-logout" type='button'>登出</button>
+              <button className="btn-logout btn-font" type='button'>登出</button>
             </div>
           </div>
         </div>
@@ -85,10 +85,6 @@ const StyledHeader = styled(Header)<Props>`
           letter-spacing: 0.2em;
           padding: 0;
           color: ${({ theme }) => theme.colors.blue_green};
-          font-style: ${({ theme }) => theme.texts.font_style};
-          font-weight: ${({ theme }) => theme.texts.font_weigth};
-          font-size: ${({ theme }) => theme.texts.H7_TC.font_size};
-          line-height: ${({ theme }) => theme.texts.H7_TC.line_height};
         }
       }
       .popup-active {
