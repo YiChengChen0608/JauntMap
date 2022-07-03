@@ -46,23 +46,25 @@ interface Effect {
   btn_shadow3_dark: string
 }
 
-interface Device {
-  mobile: string,
-  tablet: string,
-  desktop: string
+interface Breakpoint {
+  xs: string,
+  md: string,
+  lg: string,
+  xl: string
 }
 export interface Theme {
   texts: Text,
   colors: Color,
   effects: Effect,
-  device: Device
+  breakpoint: Breakpoint
 }
 
 export const theme: Theme = {
-  device: {
-    mobile: '375px',
-    tablet: '768px',
-    desktop: '1280px'
+  breakpoint: {
+    xs: '375px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px'
   },
   texts: {
     font_style: 'normal',

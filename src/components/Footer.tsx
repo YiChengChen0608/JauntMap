@@ -12,9 +12,7 @@ function Footer ({ className }: Props): React.ReactElement {
 }
 
 const StyledFooter = styled(Footer)<Props>`
-  display: none;
-  @media (max-width: ${({ theme }) => theme.device.tablet}) {
-    position: fixed;
+  position: fixed;
     bottom: 0;
     width: 100%;
     display: grid;
@@ -25,6 +23,8 @@ const StyledFooter = styled(Footer)<Props>`
     background: rgba(234, 235, 237, 0.8);
     backdrop-filter: blur(8px);
     z-index: 999;
+  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+    display: none;
   }
 `
 

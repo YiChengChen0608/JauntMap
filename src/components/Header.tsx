@@ -56,8 +56,9 @@ const StyledHeader = styled(Header)<Props>`
       gap: 10px;
     }
     &-menu {
-      @media (max-width: ${({ theme }) => theme.device.tablet}) {
-        display: none;
+      display: none;
+      @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+        display: flex;
       }
     }
     &-submenu {

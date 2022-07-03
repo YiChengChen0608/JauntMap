@@ -5,8 +5,10 @@ import StyledFooter from '../components/Footer'
 import { Props } from 'utils/types'
 import { getTourismList, getTdxAccessToken } from '../services/tourism'
 import Cookies from 'js-cookie'
+import { useLocation } from 'react-router-dom'
 
 function Layout ({ className, children }: Props): React.ReactElement {
+  console.log(useLocation())
   React.useEffect(() => {
     const abortController = new AbortController()
     async function getTourism () {
@@ -62,11 +64,18 @@ const StyledLayout = styled(Layout)<Props>`
   }
   .Layout {
     &-main {
-      max-width: ${({ theme }) => theme.device.desktop};
-      height: 1200px;
-      margin: 38px auto;
-      @media (max-width: ${({ theme }) => theme.device.mobile}) {
-        margin: 30px auto;
+      margin: 0 auto;
+      padding: 30px 17px;
+      @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+        max-width: ${({ theme }) => theme.breakpoint.md};
+        padding-left: 44px;
+        padding:rigth: 44px;
+      }
+      @media (min-width: ${({ theme }) => theme.breakpoint.lg}) {
+        max-width: ${({ theme }) => theme.breakpoint.lg};
+      } 
+      @media (min-width: ${({ theme }) => theme.breakpoint.xl}) {
+        max-width: ${({ theme }) => theme.breakpoint.xl};
       }
     }
     
